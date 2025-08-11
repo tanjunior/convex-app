@@ -1,5 +1,4 @@
 import { convexAuth } from "@convex-dev/auth/server";
-import { Password } from "@convex-dev/auth/providers/Password";
 import { MFA } from "./MFA";
 import { internalQuery, mutation } from "./_generated/server";
 import { Base64, ConvexError, v } from "convex/values";
@@ -9,7 +8,7 @@ import { createTOTPKeyURI, verifyTOTP } from "@oslojs/otp";
 import { Scrypt } from "lucia";
 
 export const { auth, signIn, signOut, store, isAuthenticated } = convexAuth({
-  providers: [MFA, Password],
+  providers: [MFA],
 });
 
 export const getAccountByAccountId = internalQuery({
